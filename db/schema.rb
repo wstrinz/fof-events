@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131113192145) do
+ActiveRecord::Schema.define(version: 20131113201443) do
+
+  create_table "event_dumps", force: true do |t|
+    t.datetime "received"
+  end
 
   create_table "events", force: true do |t|
     t.string   "event_text"

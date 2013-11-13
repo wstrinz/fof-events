@@ -50,7 +50,7 @@ class EventServer < Sinatra::Base
   end
 
   configure do
-    set :database, "sqlite3:///db/events.sqlite"
+    set :database, "sqlite3:///db/database.sqlite3"
   end
 
   get '/' do
@@ -68,6 +68,10 @@ class EventServer < Sinatra::Base
 
   get '/events' do
     Event.all.map(&:event_text).join("<br>")
+  end
+
+  get '/event_dumps' do
+    EventDump.all.map(&:received).join("<br>")
   end
 
   post '/record/:id' do
